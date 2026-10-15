@@ -32,7 +32,6 @@
   --line: #272c34; --accent: #8ea5ff; --accent-soft: #1c2440; color-scheme: dark;
 }
 * { box-sizing: border-box; }
-html, body { margin: 0; }
 body {
   background: var(--bg); color: var(--fg);
   font-family: var(--body); font-size: 18px; line-height: 1.55;
@@ -100,6 +99,7 @@ footer { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
   .project { break-inside: avoid; }
 }
 </style>
+<style>html, body { margin: 0; }</style>
 </head>
 <body>
 
@@ -122,6 +122,7 @@ footer { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
       <ul>
         <li><a href="#work">Selected work</a></li>
         <li><a href="#research">Research</a></li>
+        <li><a href="#more">More projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
       </ul>
@@ -205,13 +206,28 @@ footer { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
 
         <article class="project">
           <div>
-            <h3>EVEN</h3>
-            <p class="what">Prototype. A technique-coaching wearable for lifters.</p>
-            <p>Two sensor pods read muscle activation (EMG) and motion (IMU), and a phone camera can add pose. EVEN fuses the three into one read of each rep and names the hidden cause of a visible fault. The hardware doesn't exist yet, so the app runs on a real phone with all three streams simulated.</p>
-            <p class="stack">React Native · Expo · sensor fusion</p>
+            <h3>Myon</h3>
+            <p class="what">Prototype. An AI strength coach that reads each muscle.</p>
+            <p>Myon is built for compression wear with textile EMG and motion sensors, and every screen answers one question: what should you do next? The hardware doesn't exist yet, so a physiologically grounded simulation models muscle activation, reps in reserve from rep velocity, fatigue, left/right asymmetry, synergist compensation and multi-day recovery.</p>
+            <p>It runs as an installable phone app that works offline, with no build step and no dependencies.</p>
+            <p class="stack">JavaScript · PWA · physiological simulation</p>
           </div>
           <div class="meta">
-            <div><a href="https://github.com/noahsafar/even">github.com/noahsafar/even</a></div>
+            <div><b>2026</b></div>
+            <div><a href="https://github.com/noahsafar/myon">github.com/noahsafar/myon</a></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Hizz</h3>
+            <p class="what">A missed-connections app, matched by AI.</p>
+            <p>Post the moment you didn't act on, at any place and any hour, and an AI matching engine compares your account with everyone else's. When two posts describe the same moment, both people get a signal, and a chat opens only once both opt in.</p>
+            <p>I built the matching engine's geographic candidate search and corroboration scoring. The app runs on Supabase with realtime chat and push, LLM matching and content screening, and moderated profile photos.</p>
+            <p class="stack">React Native · Expo · Supabase · LLM matching</p>
+          </div>
+          <div class="meta">
+            <div><b>2026</b>Private repository, demo on request</div>
           </div>
         </article>
       </div>
@@ -234,6 +250,18 @@ footer { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
         </article>
         <article class="project">
           <div>
+            <h3>SkinCheck</h3>
+            <p class="what">Skin-lesion segmentation and classification for early melanoma detection.</p>
+            <p>An Attention U-Net segments lesions on the ISIC 2017 data, and a classifier trained on ISIC 2018 flags malignant ones. The data is 80% benign, so I moved from plain binary training to focal loss, oversampling and a 3-fold cross-validation ensemble tuned for F2, which raised sensitivity on malignant lesions from 32% to 96.6%.</p>
+            <p class="stack">PyTorch · Attention U-Net · focal loss · ISIC</p>
+          </div>
+          <div class="meta">
+            <div><span class="figure">0.796</span><div class="cap">Dice on segmentation</div></div>
+            <div><a href="https://github.com/noahsafar/skincheck">github.com/noahsafar/skincheck</a></div>
+          </div>
+        </article>
+        <article class="project">
+          <div>
             <h3>ECG anomaly detection</h3>
             <p class="what">Research with Dr. Timothy Oladunni.</p>
             <p>An unsupervised convolutional autoencoder with DBSCAN clustering that flags abnormal heartbeats, trained on the MIT-BIH arrhythmia data from PhysioNet.</p>
@@ -242,6 +270,36 @@ footer { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
           <div class="meta">
             <div><span class="figure">100,000+</span><div class="cap">annotated heartbeats</div></div>
             <div><a href="https://github.com/noahsafar/ECG-Autoencoder">ECG-Autoencoder</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="more">
+      <h2>More projects</h2>
+      <div class="work">
+        <article class="project">
+          <div>
+            <h3>SentiScore</h3>
+            <p class="what">An AI mood journal.</p>
+            <p>Record journal entries by voice, track mood across dimensions like stress, happiness and clarity, and get AI insights into your patterns on a dashboard of trends.</p>
+            <p class="stack">Next.js · TypeScript · Express · Chart.js</p>
+          </div>
+          <div class="meta">
+            <div><b>Nov 2025</b></div>
+            <div><a href="https://github.com/noahsafar/sentiscore">github.com/noahsafar/sentiscore</a></div>
+          </div>
+        </article>
+        <article class="project">
+          <div>
+            <h3>Filmter</h3>
+            <p class="what">Movie search for people who can't decide what to watch.</p>
+            <p>A Flask web app that searches over a million movies by keyword through the TMDb API and keeps each user's watched and want-to-watch lists.</p>
+            <p class="stack">Python · Flask · SQL · JavaScript</p>
+          </div>
+          <div class="meta">
+            <div><b>Dec 2023</b><a href="https://youtu.be/Xc6aL9rSW0k">Video demo</a></div>
+            <div><a href="https://github.com/noahsafar/filmter">github.com/noahsafar/filmter</a></div>
           </div>
         </article>
       </div>
